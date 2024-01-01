@@ -43,7 +43,7 @@ namespace DesafioFundamentos.Models
 
         public void RemoverVeiculo()
         {
-            Console.WriteLine("Digite a placa do veículo para remover:");           
+            Console.WriteLine("Digite a placa do veículo para remover:");
             string placa = Console.ReadLine().ToUpper();
 
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
@@ -76,6 +76,37 @@ namespace DesafioFundamentos.Models
             else
             {
                 Console.WriteLine("Não há veículos estacionados.");
+            }
+        }
+    }
+}
+
+
+using System;
+class Program
+{
+    static void Main()
+    {
+        string titulo, descricao, dataVencimento;
+
+        titulo = Console.ReadLine();
+        descricao = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(descricao))
+        {
+            Console.WriteLine("Digite uma descricao valida.");
+        }
+        else
+        {
+            if (descricao.Length > 50)
+            {
+                Console.WriteLine("Descricao ultrapassa limite de caracteres.");
+            }
+            else
+            {
+                dataVencimento = Console.ReadLine();
+
+                Console.WriteLine($"{descricao} ate {dataVencimento}");
             }
         }
     }
