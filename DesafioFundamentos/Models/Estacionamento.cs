@@ -8,9 +8,9 @@ namespace DesafioFundamentos.Models
         private decimal precoPorHora = 0;
         private List<string> veiculos = new List<string>();
 
-        public Estacionamento(decimal precoInicial, decimal precoPorHora)
+        public Estacionamento(decimal _precoInicial, decimal precoPorHora)
         {
-            this.precoInicial = precoInicial;
+            precoInicial = _precoInicial;
             this.precoPorHora = precoPorHora;
         }
 
@@ -32,7 +32,6 @@ namespace DesafioFundamentos.Models
                 {
                     Console.WriteLine("Placa já registrada!");
                 }
-
             }
             else
             {
@@ -46,7 +45,7 @@ namespace DesafioFundamentos.Models
             Console.WriteLine("Digite a placa do veículo para remover:");
             string placa = Console.ReadLine().ToUpper();
 
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculos.Any(x => x.ToUpper() == placa))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
                 int horas = int.Parse(Console.ReadLine());
@@ -76,37 +75,6 @@ namespace DesafioFundamentos.Models
             else
             {
                 Console.WriteLine("Não há veículos estacionados.");
-            }
-        }
-    }
-}
-
-
-using System;
-class Program
-{
-    static void Main()
-    {
-        string titulo, descricao, dataVencimento;
-
-        titulo = Console.ReadLine();
-        descricao = Console.ReadLine();
-
-        if (string.IsNullOrEmpty(descricao))
-        {
-            Console.WriteLine("Digite uma descricao valida.");
-        }
-        else
-        {
-            if (descricao.Length > 50)
-            {
-                Console.WriteLine("Descricao ultrapassa limite de caracteres.");
-            }
-            else
-            {
-                dataVencimento = Console.ReadLine();
-
-                Console.WriteLine($"{descricao} ate {dataVencimento}");
             }
         }
     }
